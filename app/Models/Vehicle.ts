@@ -3,22 +3,22 @@ import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 
 export default class Vehicle extends BaseModel {
   @column({ isPrimary: true })
-  public id: number
+  public id:string
 
   @column({})
   public name: string
 
   @column()
-  public brand: string
+  public brand_id: string
 
   @column()
   public image: string
 
   @column()
-  public maxSpeed: number
+  public max_speed: number
 
   @column()
-  public isElectric: boolean
+  public is_eletric: boolean
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

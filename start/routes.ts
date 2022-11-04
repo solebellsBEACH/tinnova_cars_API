@@ -19,7 +19,7 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
-
-Route.get('/', async () => {
-  return { hello: 'world' }
-})
+Route.post("vehicle", "VehiclesController.create")
+// Route.group(() => {
+//     Route.post("transaction", "TransactionsController.store")
+// }).middleware('auth')
