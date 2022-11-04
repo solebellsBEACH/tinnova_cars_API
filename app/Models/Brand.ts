@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 
-export default class Vehicle extends BaseModel {
+export default class Brand extends BaseModel {
   @column({ isPrimary: true })
   public id: number;
 
@@ -9,16 +9,7 @@ export default class Vehicle extends BaseModel {
   public name: string
 
   @column()
-  public brand_id: string
-
-  @column()
   public image: string
-
-  @column()
-  public max_speed: number
-
-  @column()
-  public is_eletric: boolean
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

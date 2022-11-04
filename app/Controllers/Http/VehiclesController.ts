@@ -13,7 +13,7 @@ export default class VehiclesController {
           console.log(error);
           response
             .status(404)
-            .send({ message: "Não foi possível criar o usuário!" + error });
+            .send({ message: "Não foi possível criar o veículo!" + error });
         }
     }
 }

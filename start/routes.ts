@@ -20,6 +20,7 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 Route.post("vehicle", "VehiclesController.create")
+Route.post("brand", "BrandsController.create")
 // Route.group(() => {
 //     Route.post("transaction", "TransactionsController.store")
 // }).middleware('auth')
