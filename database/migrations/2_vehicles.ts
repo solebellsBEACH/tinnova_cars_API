@@ -5,10 +5,10 @@ export default class Vehicles extends BaseSchema {
 
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
-      table.increments('id')
+      table.increments('id').primary()
 
       table.string('name').unique().notNullable()
-      table.string('brand').notNullable()
+      table.uuid('brand_id').unsigned().references('id').inTable('brands').onDelete('CASCADE')
       table.string('image').unique().notNullable()
       table.float('maxSpeed').notNullable()
       table.boolean('isEletric').notNullable()
