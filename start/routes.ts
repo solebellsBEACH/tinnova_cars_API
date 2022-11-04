@@ -19,9 +19,13 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
-Route.post("vehicle", "VehiclesController.create")
-Route.post("brand", "BrandsController.create")
+
+// Rotas Abertas
+Route.post("session", "SessionsController.store")
 Route.post("user", "UsersController.create")
-// Route.group(() => {
-//     Route.post("transaction", "TransactionsController.store")
-// }).middleware('auth')
+
+//Rotas Privadas
+Route.group(() => {
+    Route.post("vehicle", "VehiclesController.create")
+    Route.post("brand", "BrandsController.create")
+}).middleware('auth')
