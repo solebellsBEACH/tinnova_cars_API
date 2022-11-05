@@ -1,7 +1,8 @@
-// import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Vehicle from "App/Models/Vehicle";
 import VehicleValidator from "App/Validators/VehicleValidator";
-
+import { DateTime } from 'luxon';
+import { schema } from '@ioc:Adonis/Core/Validator'
 export default class VehiclesController {
 
     async create({ request, response }) {
@@ -15,5 +16,92 @@ export default class VehiclesController {
             .status(404)
             .send({ message: "Não foi possível criar o veículo!" + error });
         }
+    }
+    async listAll({ response }) {
+      try {
+        const vehicles = await Vehicle.all()
+        response.status(200).send({ message: 'Veículos encontrados com sucesso', vehicles })
+      } catch (error) {
+        console.log(error);
+        response
+          .status(404)
+          .send({ message: "Não foi possível encontrar o as marcas!" + error });
+      }
+    }
+  
+    async list({ response, params }) {
+      response.send({ params: params })
+      // try {
+      //   const vehicles = await Vehicle.all()
+      //   response.status(200).send({ message: 'Veículos encontrados com sucesso', vehicles })
+      // } catch (error) {
+      //   console.log(error);
+      //   response
+      //     .status(404)
+      //     .send({ message: "Não foi possível encontrar o as marcas!" + error });
+      // }
+    }
+    async delete({ response, params }: HttpContextContract & { params: { id: string } }) {
+      const { id } = params
+      try {
+        const vehicle = await Vehicle.findOrFail(id)
+        vehicle.delete()
+        response.status(200).send({ message: 'Veículo deletado com sucesso', vehicle })
+      } catch (error) {
+        console.log(error);
+        response
+          .status(404)
+          .send({ message: "Não foi possível deletar o a marca!" + error });
+      }
+    }
+    async put({ request, response, params }: HttpContextContract & { params: { id: string } }) {
+      const { id } = params
+      const payload = await request.validate(VehicleValidator)
+      try {
+        await Vehicle
+          .query()
+          .where('id', id)
+          .update({ ...payload, updatedAt: DateTime.local() })
+  
+        const vehicle = await Vehicle
+          .query()
+          .where('id', id)
+        response.status(200).send({ message: 'Veículo atualizado com sucesso', vehicle })
+      } catch (error) {
+        console.log(error);
+        response
+          .status(404)
+          .send({ message: "Não foi possível atualizar o a marca!" + error });
+      }
+    }
+    async patch({ request, response, params }: HttpContextContract & { params: { id: string } }) {
+      const { id } = params
+  
+      const vehiclePatchSchema = schema.create({
+        name: schema.string.nullableAndOptional({ trim: true }),
+        brand_id: schema.number.nullableAndOptional(),
+        image: schema.string.nullableAndOptional({ trim: true }),
+        description: schema.string.nullableAndOptional(),
+        color: schema.string.nullableAndOptional(),
+        year: schema.number.nullableAndOptional(),
+        is_sold: schema.boolean.nullableAndOptional(),
+      })
+      const payload = await request.validate({ schema: vehiclePatchSchema })
+      try {
+        await Vehicle
+          .query()
+          .where('id', id)
+          .update({ ...payload, updatedAt: DateTime.local() })
+  
+        const vehicle = await Vehicle
+          .query()
+          .where('id', id)
+        response.status(200).send({ message: 'Veículo atualizado com sucesso', vehicle })
+      } catch (error) {
+        console.log(error);
+        response
+          .status(404)
+          .send({ message: "Não foi possível atualizar o a marca!" + error });
+      }
     }
 }

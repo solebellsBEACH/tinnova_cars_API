@@ -5,6 +5,7 @@ import Brand from "App/Models/Brand";
 import BrandValidator from "App/Validators/BrandValidator";
 import { DateTime } from "luxon";
 import { schema } from '@ioc:Adonis/Core/Validator'
+
 export default class BrandsController {
   async create({ request, response }) {
     const payload = await request.validate(BrandValidator)

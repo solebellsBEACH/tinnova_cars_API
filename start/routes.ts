@@ -25,7 +25,7 @@ Route.post("session", "SessionsController.store")
 Route.post("user", "UsersController.create")
 
 //Vehicles  Routes
-Route.get("vehicle", "VehiclesController.list")
+Route.get("vehicle", "VehiclesController.listAll")
 //Brand  Routes
 Route.get("brand", "BrandsController.listAll")
 Route.get("brandList/*", "BrandsController.list")
