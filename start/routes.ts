@@ -33,8 +33,12 @@ Route.get("brandList/*", "BrandsController.list")
 Route.group(() => {
     //Vehicles Private Routes
     Route.post("vehicle", "VehiclesController.create")
+    Route.delete("vehicle/:id", "VehiclesController.delete")
+    Route.put("vehicle/:id", "VehiclesController.put")
+    Route.patch("vehicle/:id", "VehiclesController.patch")
     //Brand Private Routes
     Route.post("brand", "BrandsController.create")
     Route.delete("brand/:id", "BrandsController.delete")
     Route.put("brand/:id", "BrandsController.put")
+    Route.patch("brand/:id", "BrandsController.patch")
 }).middleware('auth')
