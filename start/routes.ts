@@ -17,31 +17,12 @@
 | import './routes/customer'
 |
 */
+import Route from '@ioc:Adonis/Core/Route';
 
-import Route from '@ioc:Adonis/Core/Route'
+Route.get('/', async () => {
+  return { hello: 'world' };
+});
 
-// Rotas Abertas
-Route.post("session", "SessionsController.store")
-Route.post("user", "UsersController.create")
-
-//Vehicles  Routes
-Route.get("vehicleListAll", "VehiclesController.listAll")
-Route.get("vehicle", "VehiclesController.list")
-Route.get("vehicleById/:id", "VehiclesController.listById")
-
-//Brand  Routes
-Route.get("brandListAll", "BrandsController.listAll")
-Route.get("brand", "BrandsController.list")
-//Rotas Privadas
-Route.group(() => {
-    //Vehicles Private Routes
-    Route.post("vehicle", "VehiclesController.create")
-    Route.delete("vehicle/:id", "VehiclesController.delete")
-    Route.put("vehicle/:id", "VehiclesController.put")
-    Route.patch("vehicle/:id", "VehiclesController.patch")
-    //Brand Private Routes
-    Route.post("brand", "BrandsController.create")
-    Route.delete("brand/:id", "BrandsController.delete")
-    Route.put("brand/:id", "BrandsController.put")
-    Route.patch("brand/:id", "BrandsController.patch")
-}).middleware('auth')
+import './Routes/vehicles.routes'
+import './Routes/users.routes'
+import './Routes/brands.routes'
