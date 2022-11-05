@@ -41,6 +41,18 @@ export default class VehiclesController {
         .send({ message: "Não foi possível encontrar o as veículo!" + error });
     }
   }
+
+  async list({ request,response}: HttpContextContract) {
+    try {
+      const vehicle = await Vehicle.query().where(request.qs())
+      response.status(200).send({ message: 'Veículos encontrados com sucesso', vehicle })
+    } catch (error) {
+      console.log(error);
+      response
+        .status(404)
+        .send({ message: "Não foi possível encontrar o as Veículos!" + error });
+    }
+  }
   async delete({ response, params }: HttpContextContract & { params: { id: string } }) {
     const { id } = params
     try {

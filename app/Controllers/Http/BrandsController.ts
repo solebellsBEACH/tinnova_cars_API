@@ -31,8 +31,8 @@ export default class BrandsController {
     }
   }
 
-  async list({ response, params }) {
-    response.send({ params: params })
+  async list({ request,response}) {
+    response.send(request)
     // try {
     //   const brands = await Brand.all()
     //   response.status(200).send({ message: 'Marcas encontradas com sucesso', brands })
