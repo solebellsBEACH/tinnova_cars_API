@@ -30,8 +30,8 @@ Route.get("vehicle", "VehiclesController.list")
 Route.get("vehicleById/:id", "VehiclesController.listById")
 
 //Brand  Routes
-Route.get("brand", "BrandsController.listAll")
-Route.get("brandList/*", "BrandsController.list")
+Route.get("brandListAll", "BrandsController.listAll")
+Route.get("brand", "BrandsController.list")
 //Rotas Privadas
 Route.group(() => {
     //Vehicles Private Routes

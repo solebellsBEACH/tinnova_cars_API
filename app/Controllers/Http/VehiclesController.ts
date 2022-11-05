@@ -25,7 +25,7 @@ export default class VehiclesController {
       console.log(error);
       response
         .status(404)
-        .send({ message: "Não foi possível encontrar o as marcas!" + error });
+        .send({ message: "Não foi possível encontrar os veículos!" + error });
     }
   }
 
@@ -38,7 +38,7 @@ export default class VehiclesController {
       console.log(error);
       response
         .status(404)
-        .send({ message: "Não foi possível encontrar o as veículo!" + error });
+        .send({ message: "Não foi possível encontrar os veículo!" + error });
     }
   }
 
@@ -50,7 +50,7 @@ export default class VehiclesController {
       console.log(error);
       response
         .status(404)
-        .send({ message: "Não foi possível encontrar o as Veículos!" + error });
+        .send({ message: "Não foi possível encontrar os Veículos!" + error });
     }
   }
   async delete({ response, params }: HttpContextContract & { params: { id: string } }) {
@@ -63,7 +63,7 @@ export default class VehiclesController {
       console.log(error);
       response
         .status(404)
-        .send({ message: "Não foi possível deletar o a marca!" + error });
+        .send({ message: "Não foi possível deletar o veículo!" + error });
     }
   }
   async put({ request, response, params }: HttpContextContract & { params: { id: string } }) {
@@ -83,7 +83,7 @@ export default class VehiclesController {
       console.log(error);
       response
         .status(404)
-        .send({ message: "Não foi possível atualizar o a marca!" + error });
+        .send({ message: "Não foi possível atualizar o veículo!" + error });
     }
   }
   async patch({ request, response, params }: HttpContextContract & { params: { id: string } }) {
@@ -113,7 +113,7 @@ export default class VehiclesController {
       console.log(error);
       response
         .status(404)
-        .send({ message: "Não foi possível atualizar o a marca!" + error });
+        .send({ message: "Não foi possível atualizar o veículo!" + error });
     }
   }
 }

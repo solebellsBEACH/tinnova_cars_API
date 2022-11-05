@@ -31,17 +31,16 @@ export default class BrandsController {
     }
   }
 
-  async list({ request,response}) {
-    response.send(request)
-    // try {
-    //   const brands = await Brand.all()
-    //   response.status(200).send({ message: 'Marcas encontradas com sucesso', brands })
-    // } catch (error) {
-    //   console.log(error);
-    //   response
-    //     .status(404)
-    //     .send({ message: "Não foi possível encontrar o as marcas!" + error });
-    // }
+  async list({ request,response}: HttpContextContract) {
+    try {
+      const brand = await Brand.query().where(request.qs())
+      response.status(200).send({ message: 'Marcas encontradas com sucesso', brand })
+    } catch (error) {
+      console.log(error);
+      response
+        .status(404)
+        .send({ message: "Não foi possível encontrar as Marcas!" + error });
+    }
   }
   async delete({ response, params }: HttpContextContract & { params: { id: string } }) {
     const { id } = params
