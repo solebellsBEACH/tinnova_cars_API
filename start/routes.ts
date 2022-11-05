@@ -26,6 +26,8 @@ Route.post("user", "UsersController.create")
 
 //Vehicles  Routes
 Route.get("vehicle", "VehiclesController.listAll")
+Route.get("vehicleById/:id", "VehiclesController.listById")
+
 //Brand  Routes
 Route.get("brand", "BrandsController.listAll")
 Route.get("brandList/*", "BrandsController.list")
