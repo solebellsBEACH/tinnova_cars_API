@@ -15,10 +15,16 @@ export default class Vehicle extends BaseModel {
   public image: string
 
   @column()
-  public max_speed: number
+  public description: string
 
   @column()
-  public is_eletric: boolean
+  public color: string
+
+  @column()
+  public year: number
+
+  @column()
+  public is_sold: boolean
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

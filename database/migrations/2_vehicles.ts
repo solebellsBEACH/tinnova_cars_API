@@ -10,8 +10,10 @@ export default class Vehicles extends BaseSchema {
       table.string('name').unique().notNullable()
       table.integer('brand_id').unsigned().references('id').inTable('brands').onDelete('CASCADE')
       table.string('image').unique().notNullable()
-      table.float('max_speed').notNullable()
-      table.boolean('is_eletric').notNullable()
+      table.integer('year').notNullable()
+      table.boolean('is_sold').notNullable()
+      table.string('description').notNullable()
+      table.string('color').notNullable()
 
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })

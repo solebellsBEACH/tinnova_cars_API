@@ -24,8 +24,17 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.post("session", "SessionsController.store")
 Route.post("user", "UsersController.create")
 
+//Vehicles  Routes
+Route.get("vehicle", "VehiclesController.list")
+//Brand  Routes
+Route.get("brand", "BrandsController.listAll")
+Route.get("brandList/*", "BrandsController.list")
 //Rotas Privadas
 Route.group(() => {
+    //Vehicles Private Routes
     Route.post("vehicle", "VehiclesController.create")
+    //Brand Private Routes
     Route.post("brand", "BrandsController.create")
+    Route.delete("brand/:id", "BrandsController.delete")
+    Route.put("brand/:id", "BrandsController.put")
 }).middleware('auth')

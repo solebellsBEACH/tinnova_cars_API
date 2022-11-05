@@ -27,8 +27,10 @@ export default class VehicleValidator {
     name: schema.string({ trim: true }),
     brand_id: schema.number(),
     image: schema.string({ trim: true }),
-    max_speed: schema.number(),
-    is_eletric: schema.boolean(),
+    description: schema.string(),
+    color: schema.string(),
+    year: schema.number(),
+    is_sold: schema.boolean(),
   })
 
   /**
