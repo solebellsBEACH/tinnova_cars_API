@@ -4,6 +4,7 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.get("vehicleListAll", "VehiclesController.listAll")
 Route.get("vehicle", "VehiclesController.list")
 Route.get("vehicleById/:id", "VehiclesController.listById")
+Route.get("vehicleByDecade/:year", "VehiclesController.listByDecade")
 
 //Rotas Privadas
 Route.group(() => {

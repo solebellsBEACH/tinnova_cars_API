@@ -20,7 +20,7 @@ export default class VehiclesController {
   async listAll({ response }) {
     try {
       const vehicles = await Vehicle.all()
-      response.status(200).send({ message: 'Veículos encontrados com sucesso', vehicles })
+      response.status(200).send({ message: 'Veículos encontrados com sucesso', count: vehicles.length, vehicles })
     } catch (error) {
       console.log(error);
       response
@@ -33,7 +33,7 @@ export default class VehiclesController {
     const { id } = params
     try {
       const vehicles = await Vehicle.query().where('id', id)
-      response.status(200).send({ message: 'Veículos encontrados com sucesso', vehicles })
+      response.status(200).send({ message: 'Veículos encontrados com sucesso', count: vehicles.length,vehicles })
     } catch (error) {
       console.log(error);
       response
@@ -42,10 +42,23 @@ export default class VehiclesController {
     }
   }
 
-  async list({ request,response}: HttpContextContract) {
+  async listByDecade({ response, params }: HttpContextContract & { params: { year: string } }) {
+    const  year  = parseInt(params.year)
     try {
-      const vehicle = await Vehicle.query().where(request.qs())
-      response.status(200).send({ message: 'Veículos encontrados com sucesso', vehicle })
+      const vehicles = await Vehicle.query().whereBetween('year', [year, year+10])
+      response.status(200).send({ message: 'Veículos encontrados com sucesso', count: vehicles.length,vehicles })
+    } catch (error) {
+      console.log(error);
+      response
+        .status(404)
+        .send({ message: "Não foi possível encontrar os veículo!" + error });
+    }
+  }
+
+  async list({ request, response }: HttpContextContract) {
+    try {
+      const vehicles = await Vehicle.query().where(request.qs())
+      response.status(200).send({ message: 'Veículos encontrados com sucesso', count: vehicles.length,vehicles })
     } catch (error) {
       console.log(error);
       response

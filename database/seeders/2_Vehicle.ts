@@ -10,7 +10,7 @@ export default class VehicleSeeder extends BaseSeeder {
         brand_id: 1,
         color: 'blue',
         is_sold: true,
-        year: 2022,
+        year: 1990,
         description: 'This is the Mustang Mach-1 description !!',
       },
       {
@@ -19,7 +19,7 @@ export default class VehicleSeeder extends BaseSeeder {
         brand_id: 1,
         color: 'black',
         is_sold: false,
-        year: 2020,
+        year: 1992,
         description: 'This is the Maverick description !!',
       },
       {
@@ -28,7 +28,7 @@ export default class VehicleSeeder extends BaseSeeder {
         brand_id: 1,
         color: 'red',
         is_sold: false,
-        year: 2012,
+        year: 1993,
         description: 'This is the Bronco Sport description !!',
       },
       {
@@ -37,7 +37,7 @@ export default class VehicleSeeder extends BaseSeeder {
         brand_id: 6,
         color: 'black',
         is_sold: false,
-        year: 2023,
+        year: 2000,
         description: 'This is the S10 CABINE DUPLA description !!',
       },
       {
@@ -46,7 +46,7 @@ export default class VehicleSeeder extends BaseSeeder {
         brand_id: 6,
         color: 'gray',
         is_sold: false,
-        year: 2023,
+        year: 2008,
         description: 'This is the S10 CABINE Simples description !!',
       },
       {
@@ -55,7 +55,7 @@ export default class VehicleSeeder extends BaseSeeder {
         brand_id: 6,
         color: 'blue',
         is_sold: false,
-        year: 2023,
+        year: 2009,
         description: 'This is the S10 Z71 description !!',
       },
       {
@@ -82,7 +82,7 @@ export default class VehicleSeeder extends BaseSeeder {
         brand_id: 2,
         color: 'red',
         is_sold: false,
-        year: 2023,
+        year: 2010,
         description: 'This is the Toro description !!',
       },
       {
@@ -91,7 +91,7 @@ export default class VehicleSeeder extends BaseSeeder {
         brand_id: 3,
         color: 'red',
         is_sold: false,
-        year: 2023,
+        year: 2015,
         description: 'This is the Frontier description !!',
       },
       {
@@ -109,7 +109,7 @@ export default class VehicleSeeder extends BaseSeeder {
         brand_id: 3,
         color: 'red',
         is_sold: false,
-        year: 2023,
+        year: 2020,
         description: 'This is the Versa description !!',
       },
       {
@@ -118,7 +118,7 @@ export default class VehicleSeeder extends BaseSeeder {
         brand_id: 5,
         color: 'gray',
         is_sold: false,
-        year: 2023,
+        year: 2029,
         description: 'This is the Rav 4 description !!',
       },
       {
@@ -127,7 +127,7 @@ export default class VehicleSeeder extends BaseSeeder {
         brand_id: 5,
         color: 'white',
         is_sold: false,
-        year: 2023,
+        year: 2025,
         description: 'This is the Corolla description !!',
       },
       {
@@ -136,7 +136,7 @@ export default class VehicleSeeder extends BaseSeeder {
         brand_id: 5,
         color: 'white',
         is_sold: false,
-        year: 2023,
+        year: 1981,
         description: 'This is the Corolla Cross description !!',
       },
     ])
