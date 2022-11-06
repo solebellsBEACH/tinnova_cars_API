@@ -2,3 +2,4 @@ yarn
 docker run -p 5432:5432 -e POSTGRES_PASSWORD=docker postgres
 node ace migration:run
 node ace db:seed
+yarn dev

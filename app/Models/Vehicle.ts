@@ -10,7 +10,7 @@ export default class Vehicle extends BaseModel {
 
   @column()
   public brand_id: number
-
+  
   @column()
   public image: string
 
